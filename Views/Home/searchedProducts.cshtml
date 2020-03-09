@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Amazonistan.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Amazonistan | Search</title>
+</head>
+<body>
+        <br/>
+        <br/>
+        <div class="w3-container">
+            <table class="w3-table-all w3-card-4 w3-hoverable w3-centered">
+                <thead>
+                    <tr class="w3-blue">
+                        <th>
+                            @Html.DisplayNameFor(model => model.productCategory)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.productName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.productPrice)
+                        </th>
+                    </tr>
+                </thead>
+
+
+                
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productCategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productPrice)
+                    </td>
+                    <td>
+                    <td>
+                        @Html.ActionLink("Buy", "itemBought", new { productID = item.productID })
+                    </td>
+                    <td>
+                        <a href="../Home">Read Reviews</a>
+                    </td>
+                </tr>
+                }
+
+            </table>
+    </body>
+</html>

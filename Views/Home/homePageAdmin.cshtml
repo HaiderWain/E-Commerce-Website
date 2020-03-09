@@ -1,0 +1,209 @@
+﻿@model IEnumerable<Amazonistan.Models.Product>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        body {
+            background-color: white;
+        }
+        
+        .actionlink{
+            font-size: larger;
+            color: seagreen;
+        }
+
+        h1 {
+            padding-left: 600px;
+            color: black;
+            font-family: BogleWeb,Helvetica Neue,Helvetica,Arial,sans-serif;
+        }
+
+        label {
+            margin-left: 1%;
+            color: black;
+            display: block;
+            font-size: 30px;
+            font-family: Open Sans,Arial,Helvetica,sans-serif,SimSun,"宋体";
+        }
+
+        .inputFields {
+            padding-top: 15px;
+            padding-left: 20%;
+            width: 100%;
+            cursor: text;
+            font-size: 25px;
+            border-radius: 7px;
+        }
+
+            .inputFields :focus {
+                outline: none;
+                box-shadow: 2px 2px 0 0 grey;
+            }
+
+        input[type = "submit"] {
+            font-size: 14px;
+            border-radius: 15px;
+            width: 4%;
+            height: 55px;
+            color: white;
+            background-color: darkblue;
+            border: solid;
+            text-align: center;
+            padding: 0;
+        }
+
+            input[type = "submit"]:hover {
+                background-color: mediumblue;
+            }
+
+        .corners {
+            border-radius: 7px;
+            width: 40%;
+            height: 45px;
+            border-color: gray;
+            border: 1px solid #9d9fa2;
+            font-size: 17px;
+            margin-right: 10px;
+            box-shadow: 1px 1px 0 0 grey;
+        }
+
+        .position {
+            max-width: 100%;
+            margin: 0;
+            padding-top: 0;
+        }
+
+        .imageposition {
+            float: left;
+            height: 100%;
+        }
+
+        input {
+            padding-left: 25px;
+        }
+
+        .loginimageposition {
+            float: right;
+            height: 100%;
+            margin-top: -4.5%;
+            margin-right: 4%;
+        }
+
+        .forhrefsnearLogo {
+            margin-top: -2%;
+            margin-left: -15%;
+        }
+
+        a:link {
+            color: lightskyblue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+        a:visited {
+            color: lightskyblue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+        a:hover {
+            color: blue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+        a:active {
+            color: blue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Amazonistan | Home</title>
+</head>
+
+<body>
+    <div class="imageposition">
+        <a href="../Home/homePage">
+            <img src="../images/dropnshopedited.jpg">
+        </a>
+    </div>
+    <div class="position">
+        <form method="post" action="../Home/searchedProducts">
+            <div class="inputFields">
+                <input class="corners" type="text" name="productName" autocomplete="off" />
+                <input type="submit" value="Go" />
+            </div>
+        </form>
+        <div class="loginimageposition">
+            <a href="../Home/AccountSettings">
+                <img src="../images/loginsignup.png" style="border:0;" />
+            </a>
+            <div class="forhrefsnearLogo">
+                <a href="../Home/homePage"> Logout |</a>
+                @ViewBag.currentUser
+            </div>
+        </div>
+        <br /><br/><br/>
+
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <label>Trendy Products</label>
+    <br />
+    <br />
+    <div class="w3-container">
+        <table class="w3-table-all w3-card-4 w3-hoverable w3-centered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.productCategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.productName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.productPrice)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productCategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.productPrice)
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <br />
+        <br />
+        <br />
+        @Html.ActionLink("Insert Item", "insertItem", new { @class = "actionlink" })
+        &nbsp;
+        @Html.ActionLink("Delete Item", "deleteItem")
+    </div>
+
+</body>
+</html>

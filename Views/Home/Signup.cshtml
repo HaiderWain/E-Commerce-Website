@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            padding-left: 40%;
+            color: black;
+            font-family: BogleWeb,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: unset;
+        }
+
+        label {
+            color: grey;
+            display: block;
+            font-size: 17px;
+            font-family: Arial;
+        }
+
+        smalllabel {
+            color: grey;
+            font-size: 13px;
+            font-family: Arial;
+        }
+
+        .form {
+            /*attributes set here will affect all things under "form" tag.*/
+            border-radius: 0px;
+            border: solid;
+            border-color: lightgrey;
+            border-width: 1px;
+            box-shadow: 0 1px 5px 0 rgba(0,0,0,.15);
+        }
+
+        .inputFields {
+            padding: 85px;
+            width: 100%;
+        }
+
+        input[type = "submit"] {
+            border-radius: 20px;
+            width: 68%;
+            height: 52px;
+            color: white;
+            background-color: #0065ff;
+        }
+
+            input[type = "submit"]:hover {
+                color: red;
+            }
+
+        .corners {
+            border-radius: 4px;
+            width: 330px;
+            height: 40px;
+            border-color: gray;
+            border: 1px solid #9d9fa2;
+        }
+
+        .position {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 0;
+        }
+
+        /*for links*/
+        {
+            color: blue;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        .logoPosition {
+            max-width: 650px;
+            margin: auto;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Amazonistan | Signup</title>
+</head>
+
+<body>
+    <p style="padding-left:43%;">
+        <img src="../images/Logo.jpg">
+    </p>
+    <h1>Create your account</h1>
+    <div class="position">
+        <form class="form" method="post" action="../Home/authenticateForSignup">
+
+            <div class="inputFields">
+
+                <label> Name: </label>
+                <input class="corners" id="name" name="name" />
+                <br />
+                <br />
+                <label> Email: </label>
+                <input class="corners" type="email" id="email" name="email" />
+                <br />
+                <br />
+                <label> Password: </label>
+                <input class="corners" type="password" id="password" name="password" />
+                <br />
+                <br />
+                <label> Contact Number: </label>
+                <input class="corners" id="number" name="number" />
+                <br />
+                <br />
+                <label> Address: </label>
+                <input class="corners" id="address" name="address" />
+                <br />
+                <br />
+                <label> Age: </label>
+                <input class="corners" id="age" name="age" />
+                <br />
+                <br />
+                <smalllabel>By clicking Create Account, you acknowledge you have read <br /> and agreed to our Terms of Use and Privacy Policy.</smalllabel>
+                <br />
+                <br />
+                <input type="submit" onclick="signupCheck()" value="Create Account" />  &nbsp;&nbsp;&nbsp; <label>@Model</label>
+
+                <br />
+
+
+                <a href="../Home/Login"> Already have an account?</a>
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+<script>
+    function signupCheck() {
+        if (document.getElementById("password").value.length < 8 || document.getElementById("password").value.length > 16 )
+        {
+            alert("Password length does not meet the requirements.");
+            return false;
+        }
+
+        var currentYear = new Date().getFullYear();
+        var temp = 2019 - currentYear;
+
+        if (document.getElementById("age").value <= temp) {
+            alert("Age input is wrong.");
+            return false;
+        }
+    }
+        
+</script>

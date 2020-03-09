@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+@model  string
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            padding-left: 600px;
+            color: black;
+            font-family: BogleWeb,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: unset;
+        }
+
+        label {
+            color: grey;
+            display: block;
+            font-size: 17px;
+            font-family: Arial;
+        }
+
+        .form {
+            /*attributes set here will affect all things under "form" tag.*/
+            border-radius: 0px;
+            border: solid;
+            border-color: lightgrey;
+            border-width: 1px;
+            box-shadow: 0 1px 5px 0 rgba(0,0,0,.15);
+        }
+
+        .inputFields {
+            padding: 85px;
+            width: 100%;
+        }
+
+        input[type = "submit"] {
+            border-radius: 20px;
+            width: 68%;
+            height: 52px;
+            color: white;
+            background-color: #0065ff;
+        }
+
+            input[type = "submit"]:hover {
+                color: red;
+            }
+
+        .corners {
+            border-radius: 4px;
+            width: 330px;
+            height: 40px;
+            border-color: gray;
+            border: 1px solid #9d9fa2;
+        }
+
+        .position {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 0
+        }
+
+        /*for links*/
+        {
+            color: blue;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Amazonistan | Insert item</title>
+</head>
+
+
+<body>
+    <h1>Insert Item</h1>
+    <div class="position">
+        <form class="form" method="post" action="../Home/authenticateForItemInsert">
+
+            <div class="inputFields">
+                <label> ProductCategory: </label>
+                <input class="corners" type="text" id="productCategory" name="productCategory" />
+                <br />
+                <br />
+                <label> ProductName: </label>
+                <input class="corners" type="text" id="ProductName" name="ProductName" />
+                <br />
+                <br />
+                <label> ProductPrice: </label>
+                <input class="corners" type="text" id="ProductPrice" name="ProductPrice" />
+                <br />
+                <br />
+                <label> ProductAmount: </label>
+                <input class="corners" type="text" id="ProductAmount" name="ProductAmount" />
+                <br />
+                <br />
+
+                <input type="submit" value="Sign In" /> &nbsp;&nbsp;&nbsp; <label>@Model</label>
+                <br />
+            </div>
+        </form>
+    </div>
+</body>
+</html>

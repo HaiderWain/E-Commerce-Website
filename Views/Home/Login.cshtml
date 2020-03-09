@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = null;
+}
+@model string
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            padding-left: 38%;
+            color: black;
+            font-family: BogleWeb,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-weight: unset;
+        }
+
+        label {
+            color: grey;
+            display: block;
+            font-size: 17px;
+            font-family: Arial;
+        }
+
+        .form {
+            /*attributes set here will affect all things under "form" tag.*/
+            border-radius: 0px;
+            border: solid;
+            border-color: lightgrey;
+            border-width: 1px;
+            box-shadow: 0 1px 5px 0 rgba(0,0,0,.15);
+        }
+
+        .inputFields {
+            padding: 85px;
+            width: 100%;
+        }
+
+        input[type = "submit"] {
+            border-radius: 20px;
+            width: 68%;
+            height: 52px;
+            color: white;
+            background-color: #0065ff;
+        }
+
+            input[type = "submit"]:hover {
+                color: red;
+            }
+
+        .corners {
+            border-radius: 4px;
+            width: 330px;
+            height: 40px;
+            border-color: gray;
+            border: 1px solid #9d9fa2;
+        }
+
+        .position {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 0
+        }
+
+        /*for links*/
+        {
+            color: blue;
+        }
+
+        a:hover {
+            color: red;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Amazonistan | Login</title>
+</head>
+
+
+<body>
+    <p style="padding-left:43%;">
+        <img src="~/Images/Logo.jpg">
+    </p>
+    <h1>Sign in to your account</h1>
+    <div class="position">
+        <form class="form" method="post" action="../Home/authenticate">
+
+            <div class="inputFields">
+                <label> Email: </label>
+                <input class="corners" type="email" id="email" name="email" />
+                <br />
+                <br />
+                <label> Password: </label>
+                <input class="corners" type="password" id="password" name="password" />
+                <br />
+                <br />
+                <br />
+                <input type="submit" onclick="loginCheck()" value="Sign In" /> &nbsp;&nbsp;&nbsp; <label>@Model</label>
+                <br />
+                <a href="../Home/Signup"> Don't have an account?</a>
+
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    function loginCheck() {
+
+        if (document.getElementById("email").value.length == 0) {
+            alert("Email field is empty");
+            return false;
+        }
+
+        if (document.getElementById("password").value.length == 0) {
+            alert("Password field is empty");
+            return false;
+        }
+
+        return true;
+    }
+</script>

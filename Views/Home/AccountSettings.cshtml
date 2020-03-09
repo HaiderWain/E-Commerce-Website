@@ -1,0 +1,188 @@
+﻿@model IEnumerable<Amazonistan.Models.currentUser>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+
+        body {
+            background-color: white;
+        }
+
+        h1 {
+            padding-left: 40%;
+            color: black;
+            font-family: BogleWeb,Helvetica Neue,Helvetica,Arial,sans-serif;
+        }
+
+        label {
+            margin-left: 1%;
+            color: black;
+            display: block;
+            font-size: 30px;
+            font-family: Open Sans,Arial,Helvetica,sans-serif,SimSun,"宋体";
+        }
+
+        .inputFields {
+            padding-top: 15px;
+            padding-left: 20%;
+            width: 100%;
+            cursor: text;
+            font-size: 25px;
+            border-radius: 7px;
+        }
+
+
+            .inputFields :focus {
+                outline: none;
+                box-shadow: 2px 2px 0 0 grey;
+            }
+
+        .corners {
+            border-radius: 7px;
+            width: 40%;
+            height: 45px;
+            border-color: gray;
+            border: 1px solid #9d9fa2;
+            font-size: 17px;
+            margin-right: 10px;
+            box-shadow: 1px 1px 0 0 grey;
+        }
+
+        .position {
+            max-width: 500px;
+            margin: auto;
+            padding-top: 0
+        }
+
+        input {
+            padding-left: 25px;
+        }
+
+
+        a:link {
+            margin-left: 2%;
+            color: lightskyblue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+        a:visited {
+            color: lightskyblue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+        a:hover {
+            color: blue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+        a:active {
+            color: blue;
+            background-color: transparent;
+            text-decoration: none;
+            font-family: 'Arial Rounded MT';
+        }
+
+
+        input[type = "submit"] {
+            border-radius: 7px;
+            width: 68%;
+            height: 52px;
+            color: white;
+            background-color: blue;
+            font-size: 20px;
+            text-align: center;
+            padding: 0;
+            margin-left: -2.5%;
+            box-shadow: 1px 1px 0 0 grey;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Amazonistan | Account</title>
+</head>
+
+<body>
+    <h1>Account Settings</h1>
+    <br />
+    <div class="position">
+        <form class="form" method="post" action="../Home/changePassword">
+
+            <div class="inputFields">
+                <input type="submit" value="Change Password" />
+                <br />
+            </div>
+        </form>
+    </div>
+    <br /><br /><br />
+    <h1>Account Details</h1>
+    <br />
+    <br />
+    <div class="w3-container">
+        <table class="w3-table-all w3-card-4 w3-hoverable w3-centered">
+            <thead>
+                <tr class="w3-blue">
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerPassword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerBalance)
+                    </th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerPassword)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customerBalance)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</body>
+</html>

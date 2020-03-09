@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Amazonistan.Models.Review>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Reviews</title>
+</head>
+<body>
+
+    <div class="w3-container">
+        <table class="w3-table-all w3-card-4 w3-hoverable w3-centered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.reviewCustomerID)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.reviewDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.reviewStars)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.reviewCustomerID)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.reviewDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.reviewStars)
+                    </td>
+
+
+                </tr>
+            }
+
+        </table>
+</body>
+</html>
+ 
